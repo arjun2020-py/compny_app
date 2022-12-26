@@ -1,6 +1,7 @@
-import 'package:company/updateVacncy/view/update_vacancy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../showVacancy/view/show_vacancy.dart';
 
 class AddVacancy extends StatelessWidget {
   const AddVacancy({super.key});
@@ -16,21 +17,6 @@ class AddVacancy extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(Icons.search),
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => UpdateVacancy(),
-              ));
-            },
-            icon: const Card(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(50))),
-              child: Icon(
-                Icons.add,
-                color: Colors.black,
-              ),
-            ),
-          )
         ],
       ),
       body: Padding(
@@ -51,6 +37,22 @@ class AddVacancy extends StatelessWidget {
               //     ),
               //   ),
               // ),
+              Card(
+                child: Container(
+                  width: 250.w,
+                  height: 40.h,
+                  child: Card(
+                    color: Color(0xffFCFFE7),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.r)),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text('Upload image'),
+                    ),
+                  ),
+                ),
+              ),
+
               SizedBox(
                 height: 10.h,
               ),
@@ -61,6 +63,7 @@ class AddVacancy extends StatelessWidget {
                   style: TextStyle(fontSize: 17.sp),
                 ),
               ),
+
               SizedBox(
                 height: 10.h,
               ),
@@ -68,6 +71,26 @@ class AddVacancy extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'enter job title',
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 200.r),
+                child: Text(
+                  'comapny name :',
+                  style: TextStyle(fontSize: 17.sp),
+                ),
+              ),
+
+              SizedBox(
+                height: 10.h,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'enter comapny name',
                 ),
               ),
               SizedBox(
@@ -84,6 +107,7 @@ class AddVacancy extends StatelessWidget {
                 height: 10.h,
               ),
               TextFormField(
+                maxLines: null,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'enter  job description',
@@ -172,11 +196,19 @@ class AddVacancy extends StatelessWidget {
               SizedBox(
                 width: 200.w,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const ShowVacncy(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xff144272),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.r))),
+                    primary: const Color(0xff144272),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.r),
+                    ),
+                  ),
                   child: const Text('Add'),
                 ),
               )

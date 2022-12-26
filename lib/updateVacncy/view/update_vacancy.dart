@@ -1,5 +1,8 @@
+import 'package:company/showVacancy/show_vacncy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../showVacancy/view/show_vacancy.dart';
 
 class UpdateVacancy extends StatelessWidget {
   const UpdateVacancy({super.key});
@@ -9,6 +12,16 @@ class UpdateVacancy extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff205295),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const ShowVacncy(),
+              ),
+            );
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         title: const Center(child: Text('Update Vacancy')),
         actions: [
           IconButton(
@@ -26,15 +39,22 @@ class UpdateVacancy extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              // Padding(
-              //   padding: EdgeInsets.only(right: 150.r),
-              //   child: Text(
-              //     'Job Infromation',
-              //     style: TextStyle(
-              //       fontSize: 20.sp,
-              //     ),
-              //   ),
-              // ),
+              Card(
+                child: Container(
+                  width: 250.w,
+                  height: 40.h,
+                  child: Card(
+                    color: const Color(0xffFCFFE7),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.r),
+                    ),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text('Upload image'),
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 10.h,
               ),
@@ -60,6 +80,25 @@ class UpdateVacancy extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: 200.r),
                 child: Text(
+                  'comapny name :',
+                  style: TextStyle(fontSize: 17.sp),
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'enter comapny name',
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 200.r),
+                child: Text(
                   ' job description :',
                   style: TextStyle(fontSize: 17.sp),
                 ),
@@ -68,6 +107,7 @@ class UpdateVacancy extends StatelessWidget {
                 height: 10.h,
               ),
               TextFormField(
+                maxLines: null,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'enter  job description',
@@ -102,7 +142,6 @@ class UpdateVacancy extends StatelessWidget {
                   style: TextStyle(fontSize: 17.sp),
                 ),
               ),
-
               SizedBox(
                 height: 10.h,
               ),
@@ -158,9 +197,11 @@ class UpdateVacancy extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0xff2C74B3),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.r))),
+                    primary: const Color(0xff2C74B3),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.r),
+                    ),
+                  ),
                   child: const Text('Update'),
                 ),
               )

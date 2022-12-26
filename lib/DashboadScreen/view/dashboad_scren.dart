@@ -8,6 +8,7 @@ class DashboadScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xff1C315E),
         // leading: IconButton(
         //     onPressed: () {}, icon: const Icon(Icons.arrow_back_ios)),
@@ -54,7 +55,7 @@ class DashboadScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Total No Of Applicationu:',
+                      'Total No Of Application:',
                       style: TextStyle(fontSize: 15.sp),
                     ),
                     Text(

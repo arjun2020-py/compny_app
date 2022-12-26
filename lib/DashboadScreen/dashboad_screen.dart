@@ -1,0 +1,1 @@
+export 'view/dashboad_scren.dart';
