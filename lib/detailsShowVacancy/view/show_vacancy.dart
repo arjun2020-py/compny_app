@@ -15,7 +15,7 @@ class DetailsShowVacancy extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => const ShowVacncy(),
+                builder: (context) =>  ShowVacncy(),
               ),
             );
           },

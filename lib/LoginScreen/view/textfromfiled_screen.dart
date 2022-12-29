@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextfromfiledScreen extends StatelessWidget {
-  const TextfromfiledScreen({
-    Key? key,
+   TextfromfiledScreen({
+    Key? key, required this.emailController,required this.passwrodConroller
   }) : super(key: key);
 
+  TextEditingController emailController = TextEditingController(),
+      passwrodConroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextFormField(
+          controller: emailController,
           autofocus: true,
           decoration: InputDecoration(
             filled: true,
@@ -35,6 +38,7 @@ class TextfromfiledScreen extends StatelessWidget {
           height: 10.h,
         ),
         TextFormField(
+          controller: passwrodConroller,
           autofocus: true,
           obscureText: true,
           decoration: InputDecoration(

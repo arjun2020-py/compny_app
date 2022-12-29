@@ -1,6 +1,7 @@
 import 'package:company/DashboadScreen/view/dashboad_scren.dart';
 import 'package:company/addVacancy/view/add_vacancy.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BottomScreen extends StatefulWidget {
@@ -58,7 +59,7 @@ class _BottomScreenState extends State<BottomScreen> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,
-        iconSize: 22,
+        iconSize: 22.sp,
         onTap: onItemPressesd,
         backgroundColor: Color(0xffFAF8F1),
       ),

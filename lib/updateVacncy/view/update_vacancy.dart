@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../showVacancy/view/show_vacancy.dart';
 
 class UpdateVacancy extends StatelessWidget {
-  const UpdateVacancy({super.key});
+   UpdateVacancy({super.key,required this.updateJob});
 
+  var updateJob;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,7 @@ class UpdateVacancy extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const ShowVacncy(),
+                builder: (context) => ShowVacncy(),
               ),
             );
           },
