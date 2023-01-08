@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailsShowVacancy extends StatelessWidget {
-  const DetailsShowVacancy({super.key});
+  DetailsShowVacancy({super.key, required this.detailsJob});
 
+  var detailsJob;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +16,7 @@ class DetailsShowVacancy extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) =>  ShowVacncy(),
+                builder: (context) => ShowVacncy(),
               ),
             );
           },
@@ -31,10 +32,18 @@ class DetailsShowVacancy extends StatelessWidget {
             child: Card(
               color: const Color(0xffCFFDE1),
               child: ListTile(
-                leading: Image.asset('assets/images/turq.jpeg'),
+                // ignore: avoid_dynamic_calls
+                leading: (detailsJob['comapnyImage'] == '')
+                    ? Image.asset(
+                        'assets/images/comapnyDefult.png',
+                        width: double.infinity,
+                        height: 150.h,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.network(detailsJob['comapnyImage'].toString()),
                 title: Padding(
                   padding: EdgeInsets.only(left: 10.r, top: 20.r),
-                  child: const Text('job title'),
+                  child: Text(detailsJob['jobTile'].toString()),
                 ),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,32 +51,40 @@ class DetailsShowVacancy extends StatelessWidget {
                     SizedBox(
                       height: 10.h,
                     ),
-                    const Text('company name'),
+                    Text(detailsJob['comapnyName'].toString()),
                     SizedBox(
                       height: 10.h,
                     ),
-                    const Text('location'),
+                    Text(detailsJob['jobLocation'].toString()),
                     SizedBox(
                       height: 10.h,
                     ),
                     SizedBox(
                       width: 200.w,
                       height: 30.h,
-                      child: const Card(
-                        child: Center(child: Text('salary')),
+                      child: Card(
+                        child: Center(
+                            child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(detailsJob['minSalary'].toString()),
+                            const Text('-'),
+                            Text(detailsJob['maxSalary'].toString())
+                          ],
+                        )),
                       ),
                     ),
                     SizedBox(
                       height: 10.h,
                     ),
-                    const Text(
-                      'job decrption',
+                    Text(
+                      detailsJob['jobDecrption'].toString(),
                       maxLines: null,
                     ),
                     SizedBox(
                       height: 10.h,
                     ),
-                    const Text('no of opeing'),
+                    Text(detailsJob['vacancyCount'].toString()),
                     SizedBox(
                       height: 30.h,
                     ),
@@ -76,11 +93,11 @@ class DetailsShowVacancy extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Text('appaly date'),
+                          Text(detailsJob['startDate'].toString()),
                           SizedBox(
                             width: 40.sp,
                           ),
-                          const Text('last date')
+                          Text(detailsJob['endDate'].toString())
                         ],
                       ),
                     )

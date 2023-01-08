@@ -116,6 +116,27 @@ class SiginupScreen extends StatelessWidget {
                         child: const Text('Siginup'),
                       ),
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Already have an login',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 14.sp),
+                        ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ));
+                            },
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, fontSize: 14.sp),
+                            ))
+                      ],
+                    ),
                     SizedBox(
                       height: 10.h,
                     ),

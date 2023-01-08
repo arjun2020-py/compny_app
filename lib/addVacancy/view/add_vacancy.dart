@@ -16,16 +16,16 @@ class AddVacancy extends StatelessWidget {
   final _auth = FirebaseAuth.instance;
 
 //2
-  late final XFile? image;
+ // late final XFile? image;
 
   //3
-  Future<XFile?> getImage() async {
-    print('=============================================================');
+  // Future<XFile?> getImage() async {
+  //   print('=============================================================');
 
-    final imagePicker = ImagePicker();
-    image = await imagePicker.pickImage(source: ImageSource.gallery);
-    print('------------------------------------------------------');
-  }
+  //   final imagePicker = ImagePicker();
+  //   image = await imagePicker.pickImage(source: ImageSource.gallery);
+  //   print('------------------------------------------------------');
+  // }
 
   //4
 
@@ -35,7 +35,9 @@ class AddVacancy extends StatelessWidget {
       jobLocationController = TextEditingController(),
       opeingController = TextEditingController(),
       startdateController = TextEditingController(),
-      enddateController = TextEditingController();
+      enddateController = TextEditingController(),
+      minSalaryController = TextEditingController(),
+      maxSalaryController = TextEditingController();
 
   final _jobAddBloc = AddVacancyBloc();
 
@@ -48,7 +50,7 @@ class AddVacancy extends StatelessWidget {
           if (state is JobAddedSucess) {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) =>  ShowVacncy(),
+                builder: (context) => ShowVacncy(),
               ),
             );
           } else {
@@ -85,21 +87,21 @@ class AddVacancy extends StatelessWidget {
                   //     ),
                   //   ),
                   // ),
-                  Card(
-                    child: Container(
-                      width: 250.w,
-                      height: 40.h,
-                      child: Card(
-                        color: Color(0xffFCFFE7),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.r)),
-                        child: TextButton(
-                          onPressed: getImage,
-                          child: Text('Upload image'),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Card(
+                  //   child: Container(
+                  //     width: 250.w,
+                  //     height: 40.h,
+                  //     child: Card(
+                  //       color: Color(0xffFCFFE7),
+                  //       shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(15.r)),
+                  //       child: TextButton(
+                  //         onPressed: getImage,
+                  //         child: Text('Upload image'),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
 
                   SizedBox(
                     height: 10.h,
@@ -190,6 +192,48 @@ class AddVacancy extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 200.r),
                     child: Text(
+                      'Enter minmum  alary :',
+                      style: TextStyle(fontSize: 17.sp),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  TextFormField(
+                    controller: minSalaryController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'enter  salary ',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 200.r),
+                    child: Text(
+                      'Enter maximum  alary :',
+                      style: TextStyle(fontSize: 17.sp),
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  TextFormField(
+                    controller: maxSalaryController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'enter  salary ',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 200.r),
+                    child: Text(
                       'no of opening :',
                       style: TextStyle(fontSize: 17.sp),
                     ),
@@ -251,16 +295,20 @@ class AddVacancy extends StatelessWidget {
                   SizedBox(
                     width: 200.w,
                     child: ElevatedButton(
-                      onPressed: () => _jobAddBloc.add(JobVacancyAdd(
-                        jobTitle: jobtileController.text,
-                        comapnyName: companynameController.text,
-                        jobDerption: jobdecrptionController.text,
-                        JobLocation: jobLocationController.text,
-                        vacanyCount: opeingController.text,
-                        startDate: startdateController.text,
-                        endDate: enddateController.text,
-                        image: image!,
-                      )),
+                      onPressed: () => _jobAddBloc.add(
+                        JobVacancyAdd(
+                          jobTitle: jobtileController.text,
+                          comapnyName: companynameController.text,
+                          jobDerption: jobdecrptionController.text,
+                          JobLocation: jobLocationController.text,
+                          minSalary: minSalaryController.text,
+                          maxSalary: maxSalaryController.text,
+                          vacanyCount: opeingController.text,
+                          startDate: startdateController.text,
+                          endDate: enddateController.text,
+                       //   image: image!,
+                        ),
+                      ),
                       style: ElevatedButton.styleFrom(
                         primary: const Color(0xff144272),
                         shape: RoundedRectangleBorder(

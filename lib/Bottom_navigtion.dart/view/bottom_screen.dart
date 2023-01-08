@@ -1,8 +1,12 @@
 import 'package:company/DashboadScreen/view/dashboad_scren.dart';
+import 'package:company/ProfileScreen/view/profile_screen.dart';
 import 'package:company/addVacancy/view/add_vacancy.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../showVacancy/view/show_vacancy.dart';
 
 class BottomScreen extends StatefulWidget {
   BottomScreen({super.key});
@@ -15,10 +19,11 @@ class _BottomScreenState extends State<BottomScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _options = [
-    DashboadScreen(),
+    const DashboadScreen(),
     AddVacancy(),
+    ShowVacncy(),
     const Center(child: Text('Job Application')),
-    const Center(child: Text('Profile'))
+    ProfileScreen(),
   ];
 
   void onItemPressesd(int index) {
@@ -30,38 +35,53 @@ class _BottomScreenState extends State<BottomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff439A97),
+      backgroundColor: const Color(0xff439A97),
       // drawer: const DrawerScreen(),
       // appBar: AppBar(),
       body: _options[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+      bottomNavigationBar: CurvedNavigationBar(
+        items: <Widget>[
+          Icon(
+            Icons.home,
+            size: 20.sp,
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/images/add-card-svgrepo-com.svg'),
-            label: 'Add Vacancy',
+
+          //label: 'Home',
+
+          SvgPicture.asset(
+            'assets/images/add-card-svgrepo-com.svg',
+            height: 15.sp,
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/file-info-paper-person-profile-svgrepo-com.svg',
-            ),
-            label: 'Job Application',
+          //  label: 'Add Vacancy',
+
+          Icon(
+            Icons.work_outline,
+            size: 20.sp,
           ),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/user-profile-svgrepo-com.svg',
-              ),
-              label: 'Profile')
+          //  label: 'Show Jobs',
+
+          Icon(
+            Icons.grid_view,
+            size: 20.sp,
+          ),
+          //label: 'Applications',
+
+          SvgPicture.asset(
+            'assets/images/user-profile-svgrepo-com.svg',
+            width: 15.sp,
+          ),
+          //  label: 'Profile',
         ],
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        iconSize: 22.sp,
+        // type: BottomNavigationBarType.fixed,
+        // currentIndex: _selectedIndex,
+        // selectedItemColor: Colors.black,
+        // iconSize: 20.sp,
+        animationDuration: Duration(microseconds: 500),
+        height: 75,
         onTap: onItemPressesd,
-        backgroundColor: Color(0xffFAF8F1),
+        //backgroundColorcolor: Color(0xff1C315E),
+        backgroundColor: const Color(0xff227C70),
+        // color: Color.fromARGB(255, 5, 65, 8),
       ),
     );
   }

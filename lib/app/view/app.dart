@@ -1,5 +1,6 @@
 import 'package:company/Bottom_navigtion.dart/view/bottom_screen.dart';
 import 'package:company/LoginScreen/login_screen.dart';
+import 'package:company/ProfileScreen/view/profile_screen.dart';
 import 'package:company/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

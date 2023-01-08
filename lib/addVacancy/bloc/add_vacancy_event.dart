@@ -4,16 +4,18 @@ part of 'add_vacancy_bloc.dart';
 abstract class AddVacancyEvent {}
 
 class JobVacancyAdd extends AddVacancyEvent {
-  JobVacancyAdd({
-    required this.jobTitle,
-    required this.comapnyName,
-    required this.jobDerption,
-    required this.JobLocation,
-    required this.vacanyCount,
-    required this.startDate,
-    required this.endDate,
-    required this.image
-  });
+  JobVacancyAdd(
+      {required this.jobTitle,
+      required this.comapnyName,
+      required this.jobDerption,
+      required this.JobLocation,
+      required this.minSalary,
+      required this.maxSalary,
+      required this.vacanyCount,
+      required this.startDate,
+      required this.endDate,
+   //   required this.image
+      });
   String jobTitle;
   String comapnyName;
   String jobDerption;
@@ -21,5 +23,11 @@ class JobVacancyAdd extends AddVacancyEvent {
   String vacanyCount;
   String startDate;
   String endDate;
-  XFile image;
+ // XFile image;
+  String minSalary;
+  String maxSalary;
+}
+
+class streamOpertion extends AddVacancyEvent {
+
 }

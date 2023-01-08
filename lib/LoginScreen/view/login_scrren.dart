@@ -6,7 +6,6 @@ import 'package:company/forgotPaswwrod/view/forgot_passwrod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:motion_toast/motion_toast.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -35,6 +34,7 @@ class LoginScreen extends StatelessWidget {
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(200.r),
             child: AppBar(
+              automaticallyImplyLeading: false,
               title: Padding(
                 padding: EdgeInsets.only(top: 20.r),
                 child: Center(

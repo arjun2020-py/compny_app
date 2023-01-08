@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -24,15 +25,15 @@ class AddVacancyBloc extends Bloc<AddVacancyEvent, AddVacancyState> {
         const uuid = Uuid();
         final addVacanyId = uuid.v4();
 
-        final refernce = FirebaseStorage.instance
-            .ref()
-            .child('companyImage')
-            .child(event.image.path);
+        // final refernce = FirebaseStorage.instance
+        //     .ref()
+        //     .child('companyImage')
+        //     .child(event.image.path);
 
-        final file = File(event.image.path);
-        await refernce.putFile(file);
+        // final file = File(event.image.path);
+        // await refernce.putFile(file);
 
-        final imageLink = await refernce.getDownloadURL();
+        // final imageLink = await refernce.getDownloadURL();
 
         await _jobVacancy.doc(addVacanyId).set({
           'userid': userId,
@@ -41,15 +42,26 @@ class AddVacancyBloc extends Bloc<AddVacancyEvent, AddVacancyState> {
           'comapnyName': event.comapnyName,
           'jobDecrption': event.jobDerption,
           'jobLocation': event.JobLocation,
+          'minSalary': event.minSalary,
+          'maxSalary': event.maxSalary,
           'vacancyCount': event.vacanyCount,
           'startDate': event.startDate,
           'endDate': event.endDate,
-          'comapnyImage': imageLink
+          //   'comapnyImage': imageLink
         });
 
         emit(JobAddedSucess());
       } else {
         emit(JobAddFailed());
+      }
+      if (event is streamOpertion) {
+        // final collection = FirebaseFirestore.instance
+        //     .collection('collectionPath')
+        //     .doc()
+        //     .collection('sdfsdf')
+        //     .add({
+
+        //     });
       }
     });
   }
