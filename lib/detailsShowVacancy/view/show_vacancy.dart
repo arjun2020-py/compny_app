@@ -28,19 +28,19 @@ class DetailsShowVacancy extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: SizedBox(
             width: 350.w,
-            height: 350.h,
+            height: 550.h,
             child: Card(
               color: const Color(0xffCFFDE1),
               child: ListTile(
                 // ignore: avoid_dynamic_calls
-                leading: (detailsJob['comapnyImage'] == '')
-                    ? Image.asset(
-                        'assets/images/comapnyDefult.png',
-                        width: double.infinity,
-                        height: 150.h,
-                        fit: BoxFit.cover,
-                      )
-                    : Image.network(detailsJob['comapnyImage'].toString()),
+                // leading: (detailsJob['comapnyImage'] == '')
+                //     ? Image.asset(
+                //         'assets/images/comapnyDefult.png',
+                //         width: double.infinity,
+                //         height: 150.h,
+                //         fit: BoxFit.cover,
+                //       )
+                //     : Image.network(detailsJob['comapnyImage'].toString()),
                 title: Padding(
                   padding: EdgeInsets.only(left: 10.r, top: 20.r),
                   child: Text(detailsJob['jobTile'].toString()),
