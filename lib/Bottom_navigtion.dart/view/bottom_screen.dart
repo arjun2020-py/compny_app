@@ -1,6 +1,7 @@
 import 'package:company/DashboadScreen/view/dashboad_scren.dart';
 import 'package:company/ProfileScreen/view/profile_screen.dart';
 import 'package:company/addVacancy/view/add_vacancy.dart';
+import 'package:company/jobApplication/view/job_application.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +23,7 @@ class _BottomScreenState extends State<BottomScreen> {
     const DashboadScreen(),
     AddVacancy(),
     ShowVacncy(),
-    const Center(child: Text('Job Application')),
+    JobApplication(),
     ProfileScreen(),
   ];
 
