@@ -48,41 +48,46 @@ class ProfileScreen extends StatelessWidget {
                                     const SizedBox(
                                       width: 20,
                                     ),
-                                    CircleAvatar(
-                                        radius: 30,
-                                        backgroundColor: Colors.white,
-                                        child: (userData['profileImage'] == '')
-                                            ? Text(
-                                                userData['companyName'][0]
-                                                    .toString()
-                                                    .toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.blueAccent),
-                                              )
-                                            : ClipOval(
-                                                child: Image.network(
-                                                  userData['profileImage']
-                                                      .toString(),
-                                                  fit: BoxFit.cover,
-                                                  height: 100,
-                                                  width: 100,
-                                                ),
-                                              )),
+                                    GestureDetector(
+                                      onTap: getPic,
+                                      child: CircleAvatar(
+                                          radius: 30,
+                                          backgroundColor: Colors.white,
+                                          child: (userData['profileImage'] ==
+                                                  '')
+                                              ? Text(
+                                                  userData['companyName'][0]
+                                                      .toString()
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.blueAccent),
+                                                )
+                                              : ClipOval(
+                                                  child: Image.network(
+                                                    userData['profileImage']
+                                                        .toString(),
+                                                    fit: BoxFit.cover,
+                                                    height: 100,
+                                                    width: 100,
+                                                  ),
+                                                )),
+                                    ),
                                     const SizedBox(
                                       width: 20,
                                     ),
-                                    TextButton(
-                                        onPressed: getPic,
-                                        child: const Text('upload pic'))
+                                    // TextButton(
+                                    //     onPressed: getPic,
+                                    //     child: const Text('upload pic'))
                                   ],
                                 ),
                                 const SizedBox(
                                   height: 8,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 220),
+                                  padding: const EdgeInsets.only(right: 200),
                                   child:
                                       Text(userData['companyName'].toString()),
                                 ),

@@ -6,6 +6,8 @@ class DetailsShowVacancy extends StatelessWidget {
   DetailsShowVacancy({super.key, required this.detailsJob});
 
   var detailsJob;
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,9 +69,13 @@ class DetailsShowVacancy extends StatelessWidget {
                             child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(detailsJob['minSalary'].toString()),
+                            Text("${detailsJob['minSalary'].toString()} k"),
+                            SizedBox(
+                              width: 5.w,
+                            ),
                             const Text('-'),
-                            Text(detailsJob['maxSalary'].toString())
+                            SizedBox(width: 5.w),
+                            Text("${detailsJob['maxSalary'].toString()} k")
                           ],
                         )),
                       ),
@@ -93,11 +99,11 @@ class DetailsShowVacancy extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(detailsJob['startDate'].toString()),
+                          Text("${detailsJob['startDate'].toString()} "),
                           SizedBox(
                             width: 40.sp,
                           ),
-                          Text(detailsJob['endDate'].toString())
+                          Text("${detailsJob['endDate'].toString()}"),
                         ],
                       ),
                     )
