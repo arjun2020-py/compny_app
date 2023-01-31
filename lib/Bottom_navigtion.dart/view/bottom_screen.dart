@@ -2,6 +2,7 @@ import 'package:company/DashboadScreen/view/dashboad_scren.dart';
 import 'package:company/ProfileScreen/view/profile_screen.dart';
 import 'package:company/addVacancy/view/add_vacancy.dart';
 import 'package:company/jobApplication/view/job_application.dart';
+import 'package:company/jobApplicationMain/view/job_application_man.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,10 +21,10 @@ class _BottomScreenState extends State<BottomScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _options = [
-    const DashboadScreen(),
+     DashboadScreen(),
     AddVacancy(),
     ShowVacncy(),
-    JobApplication(),
+    JobApplicationMain(),
     ProfileScreen(),
   ];
 

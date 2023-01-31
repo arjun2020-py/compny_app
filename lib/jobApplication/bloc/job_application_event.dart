@@ -4,6 +4,10 @@ part of 'job_application_bloc.dart';
 abstract class JobApplicationEvent {}
 
 class JobApplicationCollection extends JobApplicationEvent {
-  JobApplicationCollection({required this.status});
+  JobApplicationCollection({
+    required this.status,
+    //required this.jobId
+  });
   String status;
+  // String jobId;
 }

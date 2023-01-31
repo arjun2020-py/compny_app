@@ -12,13 +12,13 @@ class JobApplicationBloc
     on<JobApplicationEvent>((event, emit) async {
       if (event is JobApplicationCollection) {
         CollectionReference jobApplicationCollection =
-            FirebaseFirestore.instance.collection('Job_Application');
+            FirebaseFirestore.instance.collection('job_application');
 
         final _auth = FirebaseAuth.instance;
 
         await jobApplicationCollection
             .doc(_auth.currentUser!.uid)
-            .set({'status': event.status});
+            .set({'status': event.status, 'userId': _auth.currentUser!.uid});
 
         emit(JobApplictionSucesses());
       } else {
